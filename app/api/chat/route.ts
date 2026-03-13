@@ -36,9 +36,19 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error("Gemini Error:", error);
 
-    return NextResponse.json(
-      { error: error?.message || "Failed to get AI response" },
-      { status: 500 }
-    );
+    const status = error?.error?.code || error?.status || 500;
+    const message =
+      error?.error?.message ||
+      error?.message ||
+      "Failed to get AI response";
+
+    if (status === 429) {
+      return NextResponse.json(
+        { error: "AI limit reached. Please wait a few seconds and try again." },
+        { status: 429 }
+      );
+    }
+
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

@@ -30,18 +30,28 @@ function MainInput({ messages, setMessages }) {
 
       const data = await res.json();
 
+      if (!res.ok) {
+        throw new Error(data.error || "Request failed");
+      }
+
       const aiMessage = {
         role: "ai",
-        text: data.reply,
+        text: data.reply || "No response from AI",
       };
 
       setMessages((prev) => [...prev, aiMessage]);
+
     } catch (error) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong.";
+
       setMessages((prev) => [
         ...prev,
         {
           role: "ai",
-          text: "Something went wrong.",
+          text: errorMessage,
         },
       ]);
     }
@@ -71,6 +81,7 @@ function MainInput({ messages, setMessages }) {
             type="text"
             placeholder="Ask anything..."
           />
+
           <button className="button" onClick={handleSend}>
             ↑
           </button>
