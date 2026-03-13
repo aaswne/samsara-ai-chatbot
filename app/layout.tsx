@@ -1,7 +1,6 @@
 import "./globals.css";
 import { ThemeProvider } from "./Context/ThemeContext"
 
-
 export default function RootLayout({
   children,
 }: {

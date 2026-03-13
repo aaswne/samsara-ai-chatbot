@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import styles from "./Page.module.css"
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import { useTheme } from "@/app/Context/ThemeContext";
@@ -14,7 +15,7 @@ function Home() {
     route.push('/GetStarted')
   }
 
-  const { darkMode } = useTheme();
+const { darkMode } = useTheme();
 
   return (
     <div
