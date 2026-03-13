@@ -2,8 +2,10 @@
 
 import React, { useState } from "react";
 import "./MainInput.css";
+import { useTheme } from "../../Context/ThemeContext"
 
-function MainInput({ messages, setMessages }) {
+function MainInput({ messages, setMessages ,  dropDown }) {
+  const {darkMode} = useTheme()
   const [question, setQuestion] = useState("");
 
   async function handleSend() {
@@ -40,12 +42,9 @@ function MainInput({ messages, setMessages }) {
       };
 
       setMessages((prev) => [...prev, aiMessage]);
-
     } catch (error) {
       const errorMessage =
-        error instanceof Error
-          ? error.message
-          : "Something went wrong.";
+        error instanceof Error ? error.message : "Something went wrong.";
 
       setMessages((prev) => [
         ...prev,
@@ -58,7 +57,12 @@ function MainInput({ messages, setMessages }) {
   }
 
   return (
-    <main className="main">
+    <main className="main" style={{backgroundColor:darkMode?"white":"black",color:darkMode?"black":"white"}}>
+      <div className={dropDown==true?"dropDown":"dropDownNone"}>
+        <button className="dropBtn">LogOut</button>
+        <button className="dropBtn">Help</button>
+        <button className="dropBtn">Private</button>
+      </div>
       <div className="chatArea">
         {messages.map((msg, index) => (
           <div key={index} className={msg.role === "user" ? "chat" : "aiChat"}>

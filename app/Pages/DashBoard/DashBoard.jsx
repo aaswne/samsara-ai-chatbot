@@ -9,7 +9,9 @@ function DashBoard() {
   const [messages, setMessages] = useState([]);
   const [recentChats, setRecentChats] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [dropDown,setDropDown] = useState(false)
   const sidebarRef = useRef(null);
+
 
   useEffect(() => {
     const savedChats = localStorage.getItem("recentChats");
@@ -29,7 +31,7 @@ function DashBoard() {
   useEffect(() => {
     function handleClickOutside(e) {
       if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-        setSidebarOpen(false);
+        setSidebarOpen(false); 
       }
     }
 
@@ -64,9 +66,14 @@ function DashBoard() {
     setMessages([]);
   };
 
+  const profileClick = ()=> {
+    setDropDown(dropDown==true?false:true)
+  }
+
+
   return (
     <>
-      <TopBar toggleSideBar={toggleSideBar} />
+      <TopBar toggleSideBar={toggleSideBar} profileClick={profileClick} />
 
       <div style={{ display: "flex", height: "calc(100vh - 60px)" }}>
         <Sidebar
@@ -78,7 +85,7 @@ function DashBoard() {
           handleClearChat={handleClearChat}
         />
 
-        <MainInput messages={messages} setMessages={setMessages} />
+        <MainInput messages={messages} setMessages={setMessages}    dropDown={dropDown} />
       </div>
     </>
   );

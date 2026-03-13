@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   padding: 18px 24px;
-  background: white;
   top: 0;
   right: 0;
   position: fixed;
   width: 90%;
+  align-items: center;
 }
 
 .hamBurgButton {
@@ -21,21 +21,20 @@
   gap: 12px;
 }
 
-.topbar-right select {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #fff;
-}
-
 .profile {
   width: 38px;
   height: 38px;
-  background: #111;
-  color: #fff;
   display: grid;
   place-items: center;
   border-radius: 50%;
   font-size: 14px;
   font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
+
+.profile:hover {
+  transform: scale(1.1);
+}
+
+

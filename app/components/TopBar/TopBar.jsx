@@ -1,19 +1,21 @@
 import "./TopBar.css";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
+import { useTheme } from "../../Context/ThemeContext"
 
+function Topbar({ toggleSideBar ,profileClick ,  }) {
 
-function Topbar({ toggleSideBar }) {
+const { darkMode } = useTheme();
+console.log(darkMode)
 
-  const handleThemeChange = (e) => {
-    const value = e.target.value;
-    setDarkMode(value === "dark");
-  };
 
   return (
-    <header className="topbar">
+    <header className="topbar" style={{ backgroundColor: darkMode ? "black" : "white" ,color:darkMode?"white":"black"}} >
       <button onClick={toggleSideBar} className="hamBurgButton">☰</button>
 
+              <ThemeToggle />
+
       <div className="topbar-right">
-        <div className="profile">AK</div>
+        <div style={{backgroundColor:darkMode?"white":"black",color:darkMode?"black":"white"}} onClick={profileClick} className="profile">AK</div>
       </div>
     </header>
   );
