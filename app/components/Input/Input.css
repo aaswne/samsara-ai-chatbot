@@ -1,4 +1,4 @@
-.inputDiv {
+.loginInputDiv {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   margin-bottom: 20px;
 }
 
-.input {
+.loginInput {
   width: 18rem;
   height: 50px;
   border-radius: 10px;
@@ -20,11 +20,11 @@
   transition: all 0.2s ease;
 }
 
-.input::placeholder {
+.loginInput::placeholder {
   color: #aaa;
 }
 
-.input:focus {
+.loginInput:focus {
   border: 1px solid #4da6ff;
   box-shadow: 0 0 5px rgba(77, 166, 255, 0.6);
 }

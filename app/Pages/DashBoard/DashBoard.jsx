@@ -4,6 +4,9 @@ import React, { useEffect, useRef, useState } from "react";
 import Sidebar from "@/app/components/SideBar/SideBar";
 import MainInput from "@/app/components/MainInput/MainInput";
 import TopBar from "@/app/components/TopBar/TopBar";
+import { logout } from "../../Config/firebase";
+import { useRouter } from "next/navigation";
+
 
 function DashBoard() {
   const [messages, setMessages] = useState([]);
@@ -11,6 +14,14 @@ function DashBoard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dropDown,setDropDown] = useState(false)
   const sidebarRef = useRef(null);
+
+  const route = useRouter()
+
+  const signOut = async () => {
+  await logout();
+  console.log("User logged out");
+  route.push("./Login")
+};
 
 
   useEffect(() => {
@@ -85,7 +96,7 @@ function DashBoard() {
           handleClearChat={handleClearChat}
         />
 
-        <MainInput messages={messages} setMessages={setMessages}    dropDown={dropDown} />
+        <MainInput messages={messages} setMessages={setMessages}    dropDown={dropDown} signOut={signOut} />
       </div>
     </>
   );

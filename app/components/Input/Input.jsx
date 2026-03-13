@@ -3,9 +3,9 @@ import "./Input.css";
 
 export default function Input({ type = "text", placeholder, value, onChange, name }) {
   return (
-    <div className="inputDiv">
+    <div className="loginInputDiv">
       <input
-        className="input"
+        className="loginInput"
         type={type}
         name={name}
         placeholder={placeholder}

@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import "./MainInput.css";
-import { useTheme } from "../../Context/ThemeContext"
+import { useTheme } from "../../Context/ThemeContext";
 
-function MainInput({ messages, setMessages ,  dropDown }) {
-  const {darkMode} = useTheme()
+function MainInput({ messages, setMessages, dropDown, signOut }) {
+  const { darkMode } = useTheme();
   const [question, setQuestion] = useState("");
 
   async function handleSend() {
@@ -57,9 +57,17 @@ function MainInput({ messages, setMessages ,  dropDown }) {
   }
 
   return (
-    <main className="main" style={{backgroundColor:darkMode?"white":"black",color:darkMode?"black":"white"}}>
-      <div className={dropDown==true?"dropDown":"dropDownNone"}>
-        <button className="dropBtn">LogOut</button>
+    <main
+      className="main"
+      style={{
+        backgroundColor: darkMode ? "white" : "black",
+        color: darkMode ? "black" : "white",
+      }}
+    >
+      <div className={dropDown == true ? "dropDown" : "dropDownNone"}>
+        <button className="dropBtn" onClick={signOut}>
+          LogOut
+        </button>
         <button className="dropBtn">Help</button>
         <button className="dropBtn">Private</button>
       </div>
@@ -71,7 +79,10 @@ function MainInput({ messages, setMessages ,  dropDown }) {
         ))}
       </div>
 
-      <div className="bottom">
+      <div
+        className="bottom"
+        style={{ background: darkMode ? "white" : "black" }}
+      >
         <div className="inputDiv">
           <input
             value={question}
@@ -90,10 +101,6 @@ function MainInput({ messages, setMessages ,  dropDown }) {
             ↑
           </button>
         </div>
-
-        <p className="p">
-          Samsara AI isn’t perfect — double-check important information.
-        </p>
       </div>
     </main>
   );

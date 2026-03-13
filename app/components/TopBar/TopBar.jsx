@@ -10,7 +10,7 @@ console.log(darkMode)
 
   return (
     <header className="topbar" style={{ backgroundColor: darkMode ? "black" : "white" ,color:darkMode?"white":"black"}} >
-      <button onClick={toggleSideBar} className="hamBurgButton">☰</button>
+      <button onClick={toggleSideBar} style={{color:darkMode?"white":"black"}}  className="hamBurgButton">☰</button>
 
               <ThemeToggle />
 
