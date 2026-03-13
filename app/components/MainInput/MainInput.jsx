@@ -3,10 +3,11 @@
 import React, { useState } from "react";
 import "./MainInput.css";
 import { useTheme } from "../../Context/ThemeContext";
-
+import { useRouter } from "next/navigation";
 function MainInput({ messages, setMessages, dropDown, signOut }) {
   const { darkMode } = useTheme();
   const [question, setQuestion] = useState("");
+  const route = useRouter()
 
   async function handleSend() {
     if (!question.trim()) return;
@@ -68,7 +69,9 @@ function MainInput({ messages, setMessages, dropDown, signOut }) {
         <button className="dropBtn" onClick={signOut}>
           LogOut
         </button>
-        <button className="dropBtn">Help</button>
+        <button onClick={()=>{
+route.push("./help")
+        }} className="dropBtn">How to use ?</button>
         <button className="dropBtn">Private</button>
       </div>
       <div className="chatArea">
