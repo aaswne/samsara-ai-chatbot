@@ -8,6 +8,7 @@ import MainInput from "../../components/MainInput/MainInput"
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const [messages, setMessages] = useState([]);
 
   function toggleSideBar() {
     setSidebarOpen((prev) => !prev);
@@ -30,8 +31,8 @@ function App() {
   return (
     <>
       <Topbar toggleSideBar={toggleSideBar} />
-      <SideBar sidebarOpen={sidebarOpen} sidebarRef={sidebarRef} />
-      <MainInput/>
+      <SideBar sidebarOpen={sidebarOpen} sidebarRef={sidebarRef} setMessages={setMessages} />
+      <MainInput messages={messages} setMessages={setMessages} />
     
     </>
   );

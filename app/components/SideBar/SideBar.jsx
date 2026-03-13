@@ -2,7 +2,7 @@
 
 import "./SideBar.css";
 
-function Sidebar({ sidebarOpen, sidebarRef }) {
+function Sidebar({ sidebarOpen, sidebarRef , setMessages }) {
   const chats = [
     "Marketing ideas",
     "Portfolio content",
@@ -31,7 +31,10 @@ function Sidebar({ sidebarOpen, sidebarRef }) {
       </div>
 
       <div className="sidebar-footer">
-        <button>Dashboard</button>
+        <button onClick={()=>{
+          localStorage.removeItem("samsaraChat")
+          setMessages([])
+        }} >Clear Chat</button>
         <button>Settings</button>
       </div>
     </aside>
