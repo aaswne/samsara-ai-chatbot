@@ -1,0 +1,30 @@
+.inputDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 18rem;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 0 12px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input::placeholder {
+  color: #aaa;
+}
+
+.input:focus {
+  border: 1px solid #4da6ff;
+  box-shadow: 0 0 5px rgba(77, 166, 255, 0.6);
+}

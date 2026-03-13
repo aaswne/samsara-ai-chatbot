@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Samsara AI Chatbot
 
-## Getting Started
+Samsara AI is a modern conversational AI chatbot built using **Next.js**, **Google Gemini AI**, and **Firebase**.  
+It provides a smooth and responsive chat interface where users can interact with an AI assistant in real time.
 
-First, run the development server:
+The project demonstrates secure AI API integration using **Next.js backend routes** and modern frontend technologies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+# Author
+
+**Aswin Krishna**
+
+- BCA Graduate  
+- AI & Software Development Enthusiast  
+
+
+GitHub: https://github.com/aaswne/
+
+---
+
+# Features
+
+- AI powered chatbot using **Google Gemini**
+- Modern UI built with **Next.js**
+- Secure server-side AI API integration
+- Smooth chat interface
+- Auto-scrolling chat messages
+- Hidden scrollbar clean UI
+- Environment variable security for API keys
+- Ready for Firebase integration
+
+---
+
+# Tech Stack
+
+Frontend
+- Next.js 16
+- React 19
+- TypeScript
+- CSS Modules / TailwindCSS
+
+Backend
+- Next.js API Routes
+
+AI
+- Google Gemini API
+- @google/genai SDK
+
+Backend Services
+- Firebase (optional)
+
+Development Tools
+- Node.js
+- npm
+- Git & GitHub
+
+---
+
+# Project Structure
+
+## Project Structure
+
+```
+samsara-ai/
+│
+├── app/
+│   ├── api/
+│   │   └── chat/
+│   │       └── route.ts
+│   │
+│   ├── components/
+│   │   ├── MainInput.jsx
+│   │   ├── MainInput.css
+│   │   ├── SideBar.jsx
+│   │   ├── SideBar.css
+│   │   ├── TopBar.jsx
+│   │   ├── TopBar.css
+│   │   ├── Spinner/
+│   │   └── ThemeToggle/
+│   │
+│   ├── Config/
+│   ├── Context/
+│   │
+│   ├── DashBoard/
+│   ├── Forgot/
+│   ├── GetStarted/
+│   ├── Login/
+│   │   ├── Login.jsx
+│   │   └── Login.module.css
+│   │
+│   ├── Pages/
+│   │   ├── DashBoard/
+│   │   ├── Forgot/
+│   │   └── GetStarted/
+│   │
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── Page.module.css
+│   └── page.tsx
+│
+├── public/
+│
+├── .env.local
+├── .gitignore
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── tsconfig.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Open the application in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Create an account or sign in if authentication is enabled.
 
-## Learn More
+3. After logging in, you will reach the **Samsara AI chat interface**.
 
-To learn more about Next.js, take a look at the following resources:
+4. Type your message in the chat input field.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Press **Enter** or click the send button.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+6. The message will be sent to the backend API.
 
-## Deploy on Vercel
+7. The backend connects to **Google Gemini AI** and generates a response.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+8. The AI response will appear in the chat conversation.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### Example
+
+User Input:
+Hello, how are you?
+
+AI Response:
+I'm doing well! How can I help you today?
