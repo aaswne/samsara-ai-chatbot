@@ -79,6 +79,9 @@
 @media (min-width: 1024px) {
   .inputDiv {
     max-width: 900px;
+    position: fixed;
+    bottom: 3%;
+
   }
 }
 
@@ -113,7 +116,7 @@
 
 @media (min-width: 1024px) {
   .p {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 }
 
