@@ -1,21 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, use } from "react";
+import React, { useState } from "react";
 import "./MainInput.css";
 
-function MainInput({messages,setMessages}) {
-  useEffect(() => {
-    const saved = localStorage.getItem("samsaraChat");
-    if (saved) {
-      setMessages(JSON.parse(saved));
-    }
-  }, []);
-
+function MainInput({ messages, setMessages }) {
   const [question, setQuestion] = useState("");
-
-  const clearChat  = () =>{
-
-  }
 
   async function handleSend() {
     if (!question.trim()) return;
@@ -57,9 +46,6 @@ function MainInput({messages,setMessages}) {
       ]);
     }
   }
-  useEffect(() => {
-    localStorage.setItem("samsaraChat", JSON.stringify(messages));
-  }, [messages]);
 
   return (
     <main className="main">

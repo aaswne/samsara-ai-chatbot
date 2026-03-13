@@ -2,14 +2,14 @@
 
 import "./SideBar.css";
 
-function Sidebar({ sidebarOpen, sidebarRef , setMessages }) {
-  const chats = [
-    "Marketing ideas",
-    "Portfolio content",
-    "React dashboard UI",
-    "AI chatbot design",
-  ];
-
+function Sidebar({
+  sidebarOpen,
+  sidebarRef,
+  recentChats,
+  handleClic,
+  handleOpenChat,
+  handleClearChat,
+}) {
   return (
     <aside
       ref={sidebarRef}
@@ -17,24 +17,27 @@ function Sidebar({ sidebarOpen, sidebarRef , setMessages }) {
     >
       <div className="sidebar-logo">Samsara.Ai</div>
 
-      <button className="new-chat-btn">+ New Chat</button>
+      <button onClick={handleClic} className="new-chat-btn">
+        + New Chat
+      </button>
 
       <div className="sidebar-section">
         <p className="sidebar-title">Recent Chats</p>
         <ul className="chat-list">
-          {chats.map((chat, index) => (
-            <li key={index} className="chat-item">
-              {chat}
+          {recentChats.map((chat) => (
+            <li
+              key={chat.id}
+              className="chat-item"
+              onClick={() => handleOpenChat(chat)}
+            >
+              {chat.title}
             </li>
           ))}
         </ul>
       </div>
 
       <div className="sidebar-footer">
-        <button onClick={()=>{
-          localStorage.removeItem("samsaraChat")
-          setMessages([])
-        }} >Clear Chat</button>
+        <button onClick={handleClearChat}>Clear Chat</button>
         <button>Settings</button>
       </div>
     </aside>
