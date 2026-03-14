@@ -14,6 +14,12 @@ function DashBoard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dropDown,setDropDown] = useState(false)
   const sidebarRef = useRef(null);
+  const [settingOpen,setSettingOpen] = useState(false)
+
+
+  const settingsOpen = () =>{
+    setSettingOpen(settingOpen==true?false:true)
+  }
 
   const route = useRouter()
 
@@ -88,12 +94,14 @@ function DashBoard() {
 
       <div style={{ display: "flex", height: "calc(100vh - 60px)" }}>
         <Sidebar
+        settingOpen={settingOpen}
           sidebarOpen={sidebarOpen}
           sidebarRef={sidebarRef}
           recentChats={recentChats}
           handleClic={handleNewChat}
           handleOpenChat={handleOpenChat}
           handleClearChat={handleClearChat}
+          settingsOpen={settingsOpen}
         />
 
         <MainInput messages={messages} setMessages={setMessages}    dropDown={dropDown} signOut={signOut} />

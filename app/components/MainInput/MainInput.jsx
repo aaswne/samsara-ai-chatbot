@@ -67,7 +67,7 @@ function MainInput({ messages, setMessages, dropDown, signOut }) {
     >
       <div className={dropDown == true ? "dropDown" : "dropDownNone"}>
         <button className="dropBtn" onClick={signOut}>
-          LogOut
+          Log out
         </button>
         <button onClick={()=>{
 route.push("./help")

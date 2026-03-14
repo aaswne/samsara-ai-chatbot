@@ -117,3 +117,55 @@
   background: #1a1a1a;
   color: white;
 }
+
+.settingList{
+  display: flex;
+  width: 19%;
+  height: max-content;
+  background-color: red;
+  position: fixed;
+  bottom: 8%;
+  border-radius: 5%;
+  z-index: 1000;
+  left: 0.9%;
+  background-color:  #262626;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .settingList{
+    width: 86%;
+    left: 6%;
+    bottom: 20%;
+  }
+}
+
+.settingListNone{
+  display: none;
+
+}
+
+.settingBtn{
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settingBtn:hover{
+  background:  #1a1a1a;
+  transform: translateX(3px);
+}
+
+.settingBtn:active{
+  transform: scale(0.98);
+}
