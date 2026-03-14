@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./MainInput.css";
 import { useTheme } from "../../Context/ThemeContext";
 import { useRouter } from "next/navigation";
-function MainInput({ messages, setMessages, dropDown, signOut }) {
+function MainInput({ messages, setMessages, dropDown, signOut ,goMaintenance }) {
   const { darkMode } = useTheme();
   const [question, setQuestion] = useState("");
   const route = useRouter()
@@ -72,7 +72,9 @@ function MainInput({ messages, setMessages, dropDown, signOut }) {
         <button onClick={()=>{
 route.push("./help")
         }} className="dropBtn">How to use ?</button>
-        <button className="dropBtn">Private</button>
+        <button onClick={()=>{
+          route.push("./maintenance")
+        }} className="dropBtn">Private</button>
       </div>
       <div className="chatArea">
         {messages.map((msg, index) => (

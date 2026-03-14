@@ -5,6 +5,7 @@ import "./SideBar.css";
 
 function Sidebar(
   {
+    signOut,
   sidebarOpen,
   sidebarRef,
   recentChats,
@@ -56,7 +57,7 @@ function Sidebar(
 <button onClick={goMaintenance} className="settingBtn">Keyboard Shortcuts</button>
 <button onClick={goMaintenance} className="settingBtn">About Samsara AI</button>
 <button onClick={goMaintenance} className="settingBtn">Privacy Policy</button>
-<button onClick={goMaintenance} className="settingBtn">Logout</button>
+<button onClick={signOut} className="settingBtn">Logout</button>
 
 </div>
 

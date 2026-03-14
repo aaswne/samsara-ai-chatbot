@@ -94,6 +94,7 @@ function DashBoard() {
 
       <div style={{ display: "flex", height: "calc(100vh - 60px)" }}>
         <Sidebar
+        signOut={signOut}
         settingOpen={settingOpen}
           sidebarOpen={sidebarOpen}
           sidebarRef={sidebarRef}
@@ -102,9 +103,10 @@ function DashBoard() {
           handleOpenChat={handleOpenChat}
           handleClearChat={handleClearChat}
           settingsOpen={settingsOpen}
+          
         />
 
-        <MainInput messages={messages} setMessages={setMessages}    dropDown={dropDown} signOut={signOut} />
+        <MainInput messages={messages} setMessages={setMessages}    dropDown={dropDown} signOut={signOut}  />
       </div>
     </>
   );
