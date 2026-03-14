@@ -13,8 +13,44 @@ function DashBoard() {
   const [recentChats, setRecentChats] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dropDown,setDropDown] = useState(false)
-  const sidebarRef = useRef(null);
   const [settingOpen,setSettingOpen] = useState(false)
+
+  const privacy = () =>{
+route.push("./Privacy")
+  }
+
+
+
+
+
+
+const dropDownRef = useRef(null);
+const settingRef = useRef(null);
+
+useEffect(() => {
+  const handleClickOutside = (e) => {
+
+    if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
+      setDropDown(false);
+    }
+
+    if (settingRef.current && !settingRef.current.contains(e.target)) {
+      setSettingOpen(false);
+    }
+
+  };
+
+  window.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    window.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
+
+
+  
+
 
 
   const settingsOpen = () =>{
@@ -45,19 +81,7 @@ function DashBoard() {
     setSidebarOpen((prev) => !prev);
   }
 
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-        setSidebarOpen(false); 
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+ 
 
   const handleNewChat = () => {
     if (messages.length > 0) {
@@ -90,23 +114,24 @@ function DashBoard() {
 
   return (
     <>
-      <TopBar toggleSideBar={toggleSideBar} profileClick={profileClick} />
+      <TopBar toggleSideBar={toggleSideBar} profileClick={profileClick} dropDownRef={dropDownRef} />
 
       <div style={{ display: "flex", height: "calc(100vh - 60px)" }}>
         <Sidebar
+        privacy={privacy}
         signOut={signOut}
         settingOpen={settingOpen}
           sidebarOpen={sidebarOpen}
-          sidebarRef={sidebarRef}
           recentChats={recentChats}
           handleClic={handleNewChat}
           handleOpenChat={handleOpenChat}
           handleClearChat={handleClearChat}
           settingsOpen={settingsOpen}
+          settingRef = {settingRef }
           
         />
 
-        <MainInput messages={messages} setMessages={setMessages}    dropDown={dropDown} signOut={signOut}  />
+        <MainInput messages={messages} setMessages={setMessages} dropDown={dropDown} signOut={signOut}  />
       </div>
     </>
   );

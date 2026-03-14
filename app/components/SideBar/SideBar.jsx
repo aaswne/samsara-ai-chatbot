@@ -5,6 +5,8 @@ import "./SideBar.css";
 
 function Sidebar(
   {
+    settingRef ,
+    privacy,
     signOut,
   sidebarOpen,
   sidebarRef,
@@ -56,13 +58,13 @@ function Sidebar(
 
 <button onClick={goMaintenance} className="settingBtn">Keyboard Shortcuts</button>
 <button onClick={goMaintenance} className="settingBtn">About Samsara AI</button>
-<button onClick={goMaintenance} className="settingBtn">Privacy Policy</button>
+<button onClick={privacy} className="settingBtn">Privacy Policy</button>
 <button onClick={signOut} className="settingBtn">Logout</button>
 
 </div>
 
       <div className="sidebar-footer">
-        <button onClick={settingsOpen} >Settings</button>
+        <button ref={settingRef } onClick={settingsOpen} >Settings</button>
       </div>
     </aside>
   );

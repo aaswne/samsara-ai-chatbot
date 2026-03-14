@@ -2,7 +2,7 @@ import "./TopBar.css";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import { useTheme } from "../../Context/ThemeContext"
 
-function Topbar({ toggleSideBar ,profileClick ,  }) {
+function Topbar({ toggleSideBar ,profileClick , dropDownRef }) {
 
 const { darkMode } = useTheme();
 console.log(darkMode)
@@ -27,7 +27,7 @@ console.log(darkMode)
     width: "40px",
     height: "40px"
   }}
-  onClick={profileClick}
+  onClick={profileClick} ref={dropDownRef}
   className="profile"
 >
   <svg
