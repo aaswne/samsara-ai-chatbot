@@ -4,7 +4,7 @@
   align-items: center;
 
   padding: 16px 24px;
-
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
   position: fixed;
   top: 0;
   right: 0;
@@ -13,7 +13,10 @@
   z-index: 1001;
 
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  /* Added matching text color */
+  color: #e5e7eb;
 }
 
 .hamBurgButton {
@@ -24,10 +27,12 @@
   padding: 6px;
   border-radius: 6px;
   transition: background 0.2s ease;
+
+  color: #e5e7eb;
 }
 
 .hamBurgButton:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.08);
 }
 
 .topbar-right {
@@ -51,11 +56,15 @@
   cursor: pointer;
 
   transition: transform 0.25s ease, box-shadow 0.2s ease;
+
+  background: rgba(255,255,255,0.08);
+  color: #f9fafb;
 }
 
 .profile:hover {
   transform: scale(1.08);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.12);
 }
 
 .profile:active {

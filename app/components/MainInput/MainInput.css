@@ -15,6 +15,7 @@
     bottom: 0;
   }
 }
+
 .chatArea {
   display: flex;
   flex-direction: column;
@@ -37,8 +38,8 @@
 }
 
 .chat {
-  color: white;
-  background-color: blue;
+  color: inherit;
+  background-color: rgba(127, 127, 127, 0.18);
   padding: 12px 16px;
   border-radius: 12px;
   max-width: 60%;
@@ -46,11 +47,12 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+  border: 1px solid rgba(127, 127, 127, 0.22);
 }
 
 .aiChat {
-  color: white;
-  background-color: red;
+  color: inherit;
+  background-color: rgba(127, 127, 127, 0.12);
   padding: 12px 16px;
   border-radius: 12px;
   max-width: 60%;
@@ -58,12 +60,13 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+  border: 1px solid rgba(127, 127, 127, 0.18);
 }
 
 .inputDiv {
   width: 90%;
   max-width: 700px;
-  background-color: grey;
+  background-color: rgba(127, 127, 127, 0.14);
   height: 39px;
   border-radius: 30px;
   display: flex;
@@ -72,6 +75,7 @@
   gap: 10px;
   position: fixed;
   bottom: 30px;
+  border: 1px solid rgba(127, 127, 127, 0.22);
 }
 
 @media (min-width: 1024px) {
@@ -85,6 +89,7 @@
 .input {
   flex: 1;
   background-color: transparent;
+  color: inherit;
   height: 100%;
   border-radius: 30px;
   border: none;
@@ -94,18 +99,24 @@
   box-sizing: border-box;
 }
 
+.input::placeholder {
+  color: inherit;
+  opacity: 0.6;
+}
+
 .button {
   height: 39px;
   width: 40px;
   border-radius: 50%;
   border: none;
-  background-color: white;
+  background-color: rgba(127, 127, 127, 0.22);
+  color: inherit;
   cursor: pointer;
   font-size: 20px;
 }
 
 .p {
-  color: white;
+  color: inherit;
   position: fixed;
   bottom: 0;
   font-size: 0.6rem;
@@ -131,9 +142,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 8px;
   width: 40%;
-  background: #1f1f1f;
   position: fixed;
   right: 0;
   top: 9%;
@@ -141,6 +150,8 @@
   box-shadow: -4px 6px 18px rgba(0,0,0,0.2);
   z-index: 1005;
   padding: 1%;
+  background: inherit;
+  border: 1px solid rgba(127, 127, 127, 0.18);
 }
 
 .dropDownNone {
@@ -159,7 +170,7 @@
   padding: 10px 14px;
   border: none;
   background: transparent;
-  color: #e5e5e5;
+  color: inherit;
   font-size: 14px;
   font-weight: 500;
   text-align: left;
@@ -169,11 +180,15 @@
 }
 
 .dropBtn:hover {
-  background: #2c2c2c;
-  color: #ffffff;
+  background: rgba(127, 127, 127, 0.16);
   transform: translateX(3px);
 }
 
 .dropBtn:active {
   transform: scale(0.98);
+}
+
+.input::placeholder {
+  color: inherit;
+  opacity: 0.65;
 }

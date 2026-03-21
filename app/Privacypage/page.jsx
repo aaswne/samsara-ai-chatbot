@@ -1,6 +1,6 @@
 export default function PrivacyPolicy() {
   return (
-    <main className="w-1/4 flex justify-center px-6 py-16">
+    <main className="w-full flex justify-center px-6 py-16">
       <div className="max-w-3xl w-full space-y-8">
 
         <div>

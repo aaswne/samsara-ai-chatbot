@@ -25,13 +25,35 @@ export async function POST(req: Request) {
 
     const ai = new GoogleGenAI({ apiKey });
 
+    const prompt = `
+You are a helpful AI assistant inside a chatbot web app.
+
+Follow these rules for every reply:
+- Reply like ChatGPT: clean, natural, and easy to read
+- Give the direct answer first
+- Keep answers short unless the user asks for full detail
+- Use short paragraphs
+- Use bullet points only when helpful
+- Avoid long introductions like "Sure" or "Here's a breakdown"
+- Avoid repeating the same point
+- For product or price questions, answer briefly and clearly
+- If the answer depends on location, model, or condition, mention that in one short line
+- Make the answer look good inside a chat bubble UI
+- Prefer simple English
+
+User question:
+${userMessage}
+`;
+
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
-      contents: userMessage,
+      contents: prompt,
     });
 
+    const replyText = response.text?.trim() || "No response from AI";
+
     return NextResponse.json({
-      reply: response.text ?? "No response from AI",
+      reply: replyText,
     });
   } catch (error: any) {
     console.error("Gemini Error:", error);
