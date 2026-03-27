@@ -1,21 +1,19 @@
-"use client"
+"use client";
 
-import styles from "./Page.module.css"
+import styles from "./Page.module.css";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import { useTheme } from "@/app/Context/ThemeContext";
 import Footer from "./components/Footer/Footer";
 import { useRouter } from "next/navigation";
-import Button from "./components/Button/Button"
+import Button from "./components/Button/Button";
 
-function Home() {
-
-  const route = useRouter()   
+export default function AboutSamara() {
+  const route = useRouter();
+  const { darkMode } = useTheme();
 
   const handleClick = () => {
-    route.push('/GetStarted')
-  }
-
-const { darkMode } = useTheme();
+    route.push("/GetStarted");
+  };
 
   return (
     <div
@@ -28,18 +26,16 @@ const { darkMode } = useTheme();
       <ThemeToggle />
 
       <span className={styles.span}>
-        <h1 className={styles.headingText}>Samsara.Ai</h1>
-        <p className={styles.tagLine}>Intelligence That Evolves.</p>
+        <h1 className={styles.headingText}>About Samara.Ai</h1>
+        <p className={styles.tagLine}>Samsara.Ai evolves intelligence for a better tomorrow.</p>
       </span>
 
       <div className={styles.buttonDiv}>
         <Button text="Get Started" onClick={handleClick} />
-        <Button text="Sign In" onClick={() => route.push("/Login")} />
+        <Button text="Home" onClick={() => route.push("/")} />
       </div>
 
       <Footer />
     </div>
   );
 }
-
-export default Home;
