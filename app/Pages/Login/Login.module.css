@@ -27,7 +27,11 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
+.buttonDiv{
+  display: flex;
+  justify-content: center;
+  
+}
 
 .card:hover {
   transform: translateY(-4px);

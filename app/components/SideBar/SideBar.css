@@ -133,7 +133,7 @@
   position: absolute;
   left: 16px;
   right: 16px;
-  bottom: 78px;
+  bottom: 95px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -237,5 +237,6 @@
   .sidebar-footer {
     margin-bottom: 28px; 
   }
+
 }
 
